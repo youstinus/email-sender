@@ -1,0 +1,6 @@
+*.exe
+doc
+.DS_Store
+.idea/
+.idea/*
+.idea

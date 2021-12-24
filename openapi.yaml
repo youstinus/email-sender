@@ -1,0 +1,49 @@
+openapi: "3.0.2"
+info:
+  title: MONGODB API CRUD
+  version: "1.0"
+servers:
+  - url: http://localhost:8000/v1
+paths:
+  /emails:
+    get:
+      responses:
+        "200":
+          description: All contents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Email"
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Email"
+      responses:
+        "201":
+          description: Return created content
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Email"
+components:
+  schemas:
+    Email:
+      type: object
+      required: [id]
+      properties:
+        id:
+          type: string
+          readOnly: true
+        to:
+          type: string
+        subject:
+          type: string
+        message:
+          type: string
+        created:
+          type: string
